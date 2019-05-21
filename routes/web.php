@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'PagesController@root')->name('root');
+
+Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
