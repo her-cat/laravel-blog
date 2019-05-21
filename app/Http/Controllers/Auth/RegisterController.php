@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -73,5 +75,22 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        // 检验用户提交的数据是否有误
+        $this->validator($request->all())->validate();
+
+        // 创建用户同时触发用户注册成功的事件，并将用户传参
+        event(new Registered($user = $this->create($request->all())));
+
+        // 登录用户
+        $this->guard()->login($user);
+
+        // 调用钩子方法 `registered()`
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
+
     }
 }
