@@ -21,7 +21,7 @@ class UserRequest extends FormRequest
             'name' => 'required|between:3,25|unique:users,name,'.$user->id,
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
             'introduction' => 'max:80',
-            'avatar' => 'image|mimes:'.implode(',', $extensions),
+            'avatar' => 'image|dimensions:min_width=208,min_height=208|mimes:'.implode(',', $extensions),
         ];
     }
 
@@ -32,6 +32,7 @@ class UserRequest extends FormRequest
             'name.between' => '用户名必须介于 3 - 25 个字符之间。',
             'name.required' => '用户名不能为空。',
             'email.unique' => '邮箱已被占用，请重新填写。',
+            'avatar.dimensions' => '图片的清晰度不够，宽和高需要 208px 以上',
         ];
     }
 
