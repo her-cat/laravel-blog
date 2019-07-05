@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'introduction',
+        'name', 'email', 'password', 'introduction', 'avatar',
     ];
 
     /**
@@ -37,4 +37,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatarAttribute($avatar)
+    {
+        !$avatar && $avatar = "https://api.adorable.io/avatars/285/{$this->name}.png";
+
+        return $avatar;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Handlers\ImageUploadHandler;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,10 +16,12 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $user = Auth::user();
+        $extensions = ImageUploadHandler::getAllowedExtensions();
         return [
             'name' => 'required|between:3,25|unique:users,name,'.$user->id,
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
             'introduction' => 'max:80',
+            'avatar' => 'image|mimes:'.implode(',', $extensions),
         ];
     }
 
@@ -28,7 +31,14 @@ class UserRequest extends FormRequest
             'name.unique' => '用户名已被占用，请重新填写。',
             'name.between' => '用户名必须介于 3 - 25 个字符之间。',
             'name.required' => '用户名不能为空。',
-            'email.unique' => '邮箱已被占用，请重新填写',
+            'email.unique' => '邮箱已被占用，请重新填写。',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'avatar' => '头像',
         ];
     }
 }
