@@ -3,8 +3,7 @@
 namespace App\Validators;
 
 /**
- * Class UsernameValidator
- * @package App\Validators
+ * Class UsernameValidator.
  */
 class UsernameValidator
 {

@@ -3,16 +3,13 @@
 namespace App\Listeners;
 
 use Illuminate\Auth\Events\Verified;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class EmailVerified
 {
     /**
      * Handle the event.
      *
-     * @param  Verified  $event
-     * @return void
+     * @param Verified $event
      */
     public function handle(Verified $event)
     {
