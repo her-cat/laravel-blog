@@ -9,7 +9,8 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, MustVerifyEmailTrait;
+    use Notifiable;
+    use MustVerifyEmailTrait;
 
     /**
      * The attributes that are mass assignable.

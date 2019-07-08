@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Handlers;
 
 use Illuminate\Http\UploadedFile;

@@ -17,6 +17,7 @@ class UserRequest extends FormRequest
     {
         $user = Auth::user();
         $extensions = ImageUploadHandler::getAllowedExtensions();
+
         return [
             'name' => 'required|between:3,25|unique:users,name,'.$user->id,
             'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
