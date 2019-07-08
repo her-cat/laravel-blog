@@ -23,7 +23,7 @@ class UsersController extends Controller
         $data = $request->all();
 
         if ($avatar = $request->avatar) {
-            $url = $uploader->save($avatar, 'avatars', $user->id);
+            $url = $uploader->save($avatar, 'avatars', $user->id, 416);
             $url && $data['avatar'] = $url;
         }
 
