@@ -12,7 +12,7 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedInteger('id', true);
             $table->string('name')->comment('名称');
             $table->text('description')->nullable()->comment('描述');
             $table->integer('article_count')->default(0)->comment('文章数');

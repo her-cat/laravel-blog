@@ -13,8 +13,8 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->index()->comment('用户 ID');
-            $table->bigInteger('category_id')->index()->comment('分类 ID');
+            $table->unsignedBigInteger('user_id')->index()->comment('用户 ID');
+            $table->unsignedInteger('category_id')->index()->comment('分类 ID');
             $table->string('slug')->nullable()->comment('SEO 友好的 URI');
             $table->string('title')->index()->comment('标题');
             $table->string('excerpt')->nullable()->comment('摘要');
