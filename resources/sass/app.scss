@@ -43,6 +43,11 @@ body {
     margin-bottom: 60px;
 }
 
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -74,4 +79,69 @@ body {
         border-radius: 4px;
         padding: 3px;
     }
+}
+
+/* Article Index Page */
+.root-page, .articles-index-page {
+    .article-list {
+        * {
+            word-wrap: break-word;
+        }
+
+        .nav>li>a {
+            position: relative;
+            display: block;
+            padding: 5px 14px;
+            font-size: 0.9em;
+        }
+
+        .title {
+            margin-bottom: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 24px;
+            color: #3d3d3d;
+        }
+
+        .excerpt {
+            font-size: 14px;
+            line-height: 22px;
+            white-space: normal;
+            color: #999;
+        }
+
+        a {
+            color: #444444;
+        }
+
+        .excerpt a {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .meta {
+            font-size: 0.9em;
+            color: #999;
+
+            a {
+                color: #b3b3b3;
+            }
+        }
+
+        .badge {
+            background-color: #d8d8d8;
+        }
+
+        hr {
+            margin-top: 12px;
+            margin-bottom: 12px;
+            border: 0;
+            border-top: 1px solid #dcebf5;
+        }
+    }
+}
+
+/* Add container and footer space */
+#app > div.container {
+    margin-bottom: 100px;
 }

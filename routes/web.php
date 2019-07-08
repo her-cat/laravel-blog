@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'PagesController@root')->name('root');
+Route::get('/', 'ArticlesController@index')->name('root');
+
+Route::resource('articles', 'ArticlesController', ['only' => ['show', 'update', 'edit']]);
 
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);

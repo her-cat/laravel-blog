@@ -16470,6 +16470,11 @@ body {
   margin-bottom: 60px;
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -16500,5 +16505,78 @@ body {
   border: 1px solid #ced4da;
   border-radius: 4px;
   padding: 3px;
+}
+
+/* Article Index Page */
+
+.root-page .article-list *,
+.articles-index-page .article-list * {
+  word-wrap: break-word;
+}
+
+.root-page .article-list .nav > li > a,
+.articles-index-page .article-list .nav > li > a {
+  position: relative;
+  display: block;
+  padding: 5px 14px;
+  font-size: 0.9em;
+}
+
+.root-page .article-list .title,
+.articles-index-page .article-list .title {
+  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+  color: #3d3d3d;
+}
+
+.root-page .article-list .excerpt,
+.articles-index-page .article-list .excerpt {
+  font-size: 14px;
+  line-height: 22px;
+  white-space: normal;
+  color: #999;
+}
+
+.root-page .article-list a,
+.articles-index-page .article-list a {
+  color: #444444;
+}
+
+.root-page .article-list .excerpt a,
+.articles-index-page .article-list .excerpt a {
+  font-size: 14px;
+  color: #999;
+}
+
+.root-page .article-list .meta,
+.articles-index-page .article-list .meta {
+  font-size: 0.9em;
+  color: #999;
+}
+
+.root-page .article-list .meta a,
+.articles-index-page .article-list .meta a {
+  color: #b3b3b3;
+}
+
+.root-page .article-list .badge,
+.articles-index-page .article-list .badge {
+  background-color: #d8d8d8;
+}
+
+.root-page .article-list hr,
+.articles-index-page .article-list hr {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: 0;
+  border-top: 1px solid #dcebf5;
+}
+
+/* Add container and footer space */
+
+#app > div.container {
+  margin-bottom: 100px;
 }
 
