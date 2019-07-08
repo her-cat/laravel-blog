@@ -23,16 +23,10 @@
                         </span>
                         <span> • </span>
 
-                        <span class="text-secondary" href="#" title="{{ $article->category->name }}">
-                            阅读数
-                            {{ $article->view_count }}
-                        </span>
+                        <span class="text-secondary">阅读数 {{ $article->view_count }} </span>
                         <span> • </span>
 
-                        <span class="text-secondary" href="#" title="{{ $article->category->name }}">
-                            评论数
-                            {{ $article->reply_count }}
-                        </span>
+                        <span class="text-secondary">评论数 {{ $article->reply_count }}</span>
                     </small>
 
                 </div>
