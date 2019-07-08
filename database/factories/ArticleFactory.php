@@ -2,12 +2,10 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Model;
 use App\Models\Article;
 use Faker\Generator as Faker;
 
 $factory->define(Article::class, function (Faker $faker) {
-
     $sentence = $faker->sentence();
 
     // // 随机取一个月以内的时间
