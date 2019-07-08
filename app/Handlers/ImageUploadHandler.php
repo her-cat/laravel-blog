@@ -26,7 +26,7 @@ class ImageUploadHandler
 
         $file->move($upload_path, $filename);
 
-        if ($max_width && $extension != 'gif') {
+        if ($max_width && 'gif' != $extension) {
             $this->reduceSize("{$upload_path}/{$filename}", $max_width);
         }
 
