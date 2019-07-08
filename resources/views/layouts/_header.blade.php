@@ -11,7 +11,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-
+                <li class="nav-item  {{ active_class(if_route('root')) }}"><a class="nav-link" href="{{ route('root') }}">首页</a></li>
+                <li class="nav-item {{ category_nav_active(1) }}"><a class="nav-link" href="{{ route('categories.show', 1) }}">Laravel 笔记</a></li>
+                <li class="nav-item {{ category_nav_active(2) }}"><a class="nav-link" href="{{ route('categories.show', 2) }}">Redis 笔记</a></li>
+                <li class="nav-item {{ category_nav_active(3) }}"><a class="nav-link" href="{{ route('categories.show', 3) }}">设计模式</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

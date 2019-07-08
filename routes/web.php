@@ -19,5 +19,5 @@ Auth::routes(['verify' => true]);
 Route::get('/', 'ArticlesController@index')->name('root');
 
 Route::resource('articles', 'ArticlesController', ['only' => ['show', 'update', 'edit']]);
-
+Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);

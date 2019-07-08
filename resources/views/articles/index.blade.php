@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', isset($category) ? $category->name : '文章列表')
+
 @section('content')
 
     <div class="row mb-5 ">
@@ -8,6 +10,13 @@
         </div>
 
         <div class="col-lg-9 col-md-9 article-list">
+            @if (isset($category))
+                <div class="alert alert-info" role="alert">
+                    {{ $category->name }} ：{{ $category->description }}
+                </div>
+            @endif
+
+
             <div class="card">
 
                 <div class="card-header">
