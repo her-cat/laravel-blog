@@ -41,6 +41,8 @@ class ArticlesController extends Controller
 
     public function edit(Article $article)
     {
+        $this->authorize('update', $article);
+
         $categories = Category::all();
 
         return view('articles.create_and_edit', compact('article', 'categories'));
@@ -48,6 +50,8 @@ class ArticlesController extends Controller
 
     public function update(ArticleRequest $request, Article $article)
     {
+        $this->authorize('update', $article);
+
         $article->fill($request->all());
         $article->save();
 
