@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'ArticlesController@index')->name('root');
+Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.upload_image');
 
 Route::resource('articles', 'ArticlesController');
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);

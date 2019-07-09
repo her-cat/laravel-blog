@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
@@ -41,5 +42,25 @@ class ArticlesController extends Controller
     public function show(Article $article)
     {
         return view('articles.show', compact('article'));
+    }
+
+    public function uploadImage(Request $request, ImageUploadHandler $uploader)
+    {
+        $data = [
+            'success' => false,
+            'msg' => '上传失败!',
+            'file_path' => '',
+        ];
+
+        if ($file = $request->upload_file) {
+            $url = $uploader->save($file, 'articles', Auth::id(), 1024);
+            if ($url) {
+                $data['success'] = true;
+                $data['msg'] = '上传成功';
+                $data['file_path'] = $url;
+            }
+        }
+
+        return $data;
     }
 }
