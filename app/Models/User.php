@@ -50,4 +50,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $avatar;
     }
+
+    public function isAuthorOf($model)
+    {
+        return $this->id == $model->user_id;
+    }
 }

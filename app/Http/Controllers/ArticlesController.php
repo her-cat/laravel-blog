@@ -63,6 +63,15 @@ class ArticlesController extends Controller
         return view('articles.show', compact('article'));
     }
 
+    public function destroy(Article $article)
+    {
+        $this->authorize('destroy', $article);
+
+        $article->delete();
+
+        return redirect()->route('articles.index')->with('success', '删除成功!');
+    }
+
     public function uploadImage(Request $request, ImageUploadHandler $uploader)
     {
         $data = [
