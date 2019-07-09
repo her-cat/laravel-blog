@@ -39,6 +39,21 @@ class ArticlesController extends Controller
         return redirect()->route('articles.show', $article->id)->with('success', '发布成功');
     }
 
+    public function edit(Article $article)
+    {
+        $categories = Category::all();
+
+        return view('articles.create_and_edit', compact('article', 'categories'));
+    }
+
+    public function update(ArticleRequest $request, Article $article)
+    {
+        $article->fill($request->all());
+        $article->save();
+
+        return redirect()->route('articles.show', $article->id)->with('success', '编辑成功');
+    }
+
     public function show(Article $article)
     {
         return view('articles.show', compact('article'));

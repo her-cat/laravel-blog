@@ -145,3 +145,24 @@ a {
 #app > div.container {
     margin-bottom: 100px;
 }
+
+.simditor-body img {
+    max-width:100%;
+}
+
+/* Article Show Page */
+
+@import "article_body";
+
+.articles-show-page {
+
+    .card {
+        padding: 15px;
+
+        h1 {
+            margin: 0.4em auto 0.6em;
+            font-size: 28px;
+            line-height: 38px;
+        }
+    }
+}
