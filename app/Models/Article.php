@@ -25,9 +25,11 @@ class Article extends Model
         switch ($order) {
             case 'recent':
                 $query->recent();
+
                 break;
             default:
                 $query->recentReplied();
+
                 break;
         }
 

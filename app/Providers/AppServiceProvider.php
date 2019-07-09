@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Article;
+use App\Observers\ArticleObserver;
 use App\Validators\UsernameValidator;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
@@ -28,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
         foreach ($this->validators as $rule => $validator) {
             Validator::extend($rule, "{$validator}@validate");
         }
+
+        Article::observe(ArticleObserver::class);
     }
 }
