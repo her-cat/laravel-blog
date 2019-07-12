@@ -10,7 +10,7 @@ class SlugTranslateHandler
 {
     public function translate($text)
     {
-        $http = new Client;
+        $http = new Client();
 
         $api = '';
         $appid = config('services.baidu_translate.appid');
