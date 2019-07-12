@@ -36,7 +36,7 @@ class ArticlesController extends Controller
         $article->user_id = Auth::id();
         $article->save();
 
-        return redirect()->route('articles.show', $article->id)->with('success', '发布成功');
+        return redirect()->to($article->link())->with('success', '发布成功');
     }
 
     public function edit(Article $article)
@@ -55,11 +55,15 @@ class ArticlesController extends Controller
         $article->fill($request->all());
         $article->save();
 
-        return redirect()->route('articles.show', $article->id)->with('success', '编辑成功');
+        return redirect()->to($article->link())->with('success', '编辑成功');
     }
 
-    public function show(Article $article)
+    public function show(Request $request, Article $article)
     {
+        if (!empty($article->slug) && $article->slug != $request->slug) {
+            return redirect($article->link(), 301);
+        }
+
         return view('articles.show', compact('article'));
     }
 

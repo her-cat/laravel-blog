@@ -5,13 +5,13 @@
                 <div class="media-body">
 
                     <h4 class="media-heading mt-0 mb-1 title">
-                        <a href="{{ route('articles.show', $article->id) }}" title="{{ $article->title }}" target="_blank">
+                        <a href="{{ $article->link() }}" title="{{ $article->title }}" target="_blank">
                             {{ $article->title }}
                         </a>
                     </h4>
 
                     <p class="excerpt">
-                        <a href="{{ route('articles.show', $article->id) }}" target="_blank">
+                        <a href="{{ $article->link() }}" target="_blank">
                             {{ $article->excerpt }}
                         </a>
                     </p>
