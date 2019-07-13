@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Handlers\SlugTranslateHandler;
+use App\Jobs\TranslateSlug;
 use App\Models\Article;
 
 class ArticleObserver
@@ -12,9 +13,12 @@ class ArticleObserver
         $article->content = clean($article->content, 'user_article_body');
 
         $article->excerpt = make_excerpt($article->content);
+    }
 
+    public function saved(Article $article)
+    {
         if (!$article->slug) {
-            $article->slug = app(SlugTranslateHandler::class)->translate($article->title);
+            dispatch(new TranslateSlug($article));
         }
     }
 }
