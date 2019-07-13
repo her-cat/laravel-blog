@@ -12,7 +12,7 @@ class SlugTranslateHandler
     {
         $http = new Client();
 
-        $api = '';
+        $api = 'http://api.fanyi.baidu.com/api/trans/vip/translate?';
         $appid = config('services.baidu_translate.appid');
         $key = config('services.baidu_translate.key');
         $salt = time();
@@ -37,7 +37,7 @@ class SlugTranslateHandler
         $result = json_decode($response->getBody(), true);
 
         if (isset($result['trans_result'][0]['dst'])) {
-            return $result['trans_result'][0]['dst'];
+            return Str::slug($result['trans_result'][0]['dst']);
         }
 
         return $this->pinyin($text);
