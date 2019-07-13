@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\DB;
 
 class TranslateSlug implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * @var Article
@@ -27,8 +30,6 @@ class TranslateSlug implements ShouldQueue
 
     /**
      * Execute the job.
-     *
-     * @return void
      */
     public function handle()
     {
