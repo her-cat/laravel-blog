@@ -2,7 +2,6 @@
 
 namespace App\Handlers;
 
-use GuzzleHttp\Client;
 use HerCat\BaiduTranslator\BaiduTranslator;
 use Illuminate\Support\Str;
 use Overtrue\Pinyin\Pinyin;
