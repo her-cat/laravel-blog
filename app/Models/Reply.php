@@ -20,6 +20,6 @@ class Reply extends Model
 
     public function scopeRecent($query)
     {
-        return $query->orderBy('id', 'desc');
+        return $query->orderBy('created_at', 'desc');
     }
 }

@@ -67,8 +67,8 @@
             {{-- 用户回复列表 --}}
             <div class="card article-reply mt-4">
                 <div class="card-body">
-{{--                    @include('articles._reply_box', ['articles' => $topic])--}}
-                    @include('articles._reply_list', ['replies' => $article->replies()->with('user')->get()])
+                    @includeWhen(Auth::check(), 'articles._reply_box', ['article' => $article])
+                    @include('articles._reply_list', ['replies' => $article->replies()->with('user')->recent()->get()])
                 </div>
             </div>
         </div>

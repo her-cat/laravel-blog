@@ -22,5 +22,6 @@ Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.up
 Route::resource('articles', 'ArticlesController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
 
 Route::get('articles/{article}/{slug?}', 'ArticlesController@show')->name('articles.show');
