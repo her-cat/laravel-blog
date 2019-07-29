@@ -44,6 +44,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Article::class);
     }
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     public function getAvatarAttribute($avatar)
     {
         !$avatar && $avatar = "https://api.adorable.io/avatars/285/{$this->name}.png";
