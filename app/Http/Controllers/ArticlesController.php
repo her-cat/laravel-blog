@@ -64,6 +64,9 @@ class ArticlesController extends Controller
             return redirect($article->link(), 301);
         }
 
+        $article->increment('view_count');
+        $article->save();
+
         return view('articles.show', compact('article'));
     }
 
