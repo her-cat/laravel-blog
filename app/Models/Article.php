@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Article extends Model
 {
@@ -54,5 +55,10 @@ class Article extends Model
     public function link($params = [])
     {
         return route('articles.show', array_merge([$this->id, $this->slug], $params));
+    }
+
+    public function incrementViewCount()
+    {
+        DB::table('articles')->where('id', $this->id)->increment('view_count');
     }
 }
