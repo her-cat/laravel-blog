@@ -60,4 +60,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->id == $model->user_id;
     }
+
+    public function link($params = [])
+    {
+        return route('users.show', array_merge([$this->id], $params));
+    }
 }

@@ -17058,3 +17058,14 @@ a {
   line-height: 38px;
 }
 
+/* Reply List */
+
+.article-reply a {
+  color: inherit;
+}
+
+.article-reply .meta {
+  font-size: 0.9em;
+  color: #b3b3b3;
+}
+
