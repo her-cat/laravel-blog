@@ -5,7 +5,7 @@
                 <div class="media-body">
 
                     <h4 class="media-heading mt-0 mb-1 title">
-                        <a href="{{ $article->link() }}" title="{{ $article->title }}" target="_blank">
+                        <a href="{{ $article->link() }}" title="{{ $article->title }}">
                             {{ $article->title }}
                         </a>
                     </h4>
